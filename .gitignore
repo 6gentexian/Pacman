@@ -3,7 +3,7 @@
 
 # Ignore all old or temp files
 *~
-*.tmp
+.projectile
 
 
 # Ignore everything in DEV/
