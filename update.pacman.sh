@@ -10,8 +10,9 @@
 ##    systemd
 ##
 ##
-##  USE:  Place on your path (e.g) in your home bin directory (~/bin)
-##        Make executable, run  $ update.pacman.sh
+##  USE:  Place on your path (e.g.) in your home bin directory (~/bin)
+##        Make executable, run:
+##        $ chmod +x update.pacman.sh  &&  ./update.pacman.sh
 ##
 ##  TODOs:
 ##			Create auditable 'archnews.html' file
@@ -63,7 +64,8 @@ pause_function
 # Update the mirror list, use HTTPS, US mirrors sync'd in the last 12 hours
 echo "Updating the mirrorlist - Selecting the fastest US mirrors: /etc/pacman.d/mirrorlist"
 sudo cp -u /etc/pacman.d/mirrorlist /etc/pacman.d/mirrorlist.orig
-sudo reflector --verbose --country 'United States' --age 12 --protocol https --sort rate --save /etc/pacman.d/mirrorlist
+sudo reflector --verbose --country 'United States' --age 12 --protocol https \
+     --sort rate --save /etc/pacman.d/mirrorlist
 echo ""; echo ""
 
 # AUDIT URL FILE
@@ -84,7 +86,7 @@ echo ""; echo ""
 echo "Creating list of all installed packages in: /home/edward/.config/pacman/installed_pkglist.txt"
 mkdir -p /home/edward/.config/pacman
 pacman -Qq > /home/edward/.config/pacman/installed_pkglist.txt
-cp /home/edward/.config/pacman/installed_pkglist.txt /home/edward/Dropbox/TW/SCRIPTS/installed_pkglist.txt
+cp -u /home/edward/.config/pacman/installed_pkglist.txt /home/edward/Dropbox/TW/SCRIPTS/installed_pkglist.txt
 echo ""; echo ""
 
 
