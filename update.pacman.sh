@@ -70,6 +70,19 @@ PAC_DIR="$HOME/.config/pacman"
 # Dir used for information on wiki page
 WIKI_DIR="$HOME/Dropbox/TW/SCRIPTS"
 
+# Git dir
+GIT_DIR="$HOME/dev/config-pacman"
+
+# Output Files:
+# All installed files
+ALL="all_pkgs.txt"
+# Installed from repos
+PAC="pacman_pkgs.txt"
+# Installed from repos not in base + base-devel
+PAC_USER="pacman_user_pkgs.txt"
+# Aur
+AUR="aur_pkgs.txt"
+
 #################################################################################
 # put the 3 next echo statements into vars and inject them into pause_fcn()
 NVerToKeep=10
@@ -105,7 +118,7 @@ pause_function
 
 #################################################################################
 # Update the mirror list, use HTTPS, US mirrors sync'd in the last 12 hours
-echo "Updating the mirrorlist - Selecting the fastest US mirrors: /etc/pacman.d/mirrorlist"
+# echo "Updating the mirrorlist - Selecting the fastest US mirrors: /etc/pacman.d/mirrorlist"
 sudo cp -u /etc/pacman.d/mirrorlist /etc/pacman.d/mirrorlist.orig
 sudo reflector --verbose --country 'United States' --age 12 --protocol https --sort rate --save /etc/pacman.d/mirrorlist
 echo ""; echo ""
@@ -131,25 +144,29 @@ mkdir -p ~/.config/pacman
 
 # List of all installed packages
 echo "Creating list of all explicitly installed packages: $PAC_DIR/all_pkgs.txt"
-pacman -Qqe | tee "$PAC_DIR/all_pkgs.txt" > "$WIKI_DIR/all_pkgs.txt"
+FILE="$ALL"
+pacman -Qqe | tee "$GIT_DIR/$FILE" "$PAC_DIR/$FILE" > "$WIKI_DIR/$FILE"
 echo ""; echo ""
 
 
 # Backup the current list of explicitly pacman installed packages
 echo "Creating list of all pacman (explicitly) installed packages: $PAC_DIR/pacman_pkgs.txt"
-pacman -Qqen | tee "$PAC_DIR/pacman_pkgs.txt" > "$WIKI_DIR/pacman_pkgs.txt"
+FILE="$PAC"
+pacman -Qqen | tee "$GIT_DIR/$FILE" "$PAC_DIR/$FILE" > "$WIKI_DIR/$FILE"
 echo ""; echo ""
 
 
 # List of pacman installed packages *NOT* in base-devel
 echo "Creating list of all pacman (explicitly) installed packages NOT in base-devel: $PAC_DIR/pacman_user_pkgs.txt"
-comm -23 <(pacman -Qqne | sort) <(pacman -Qgq base base-devel | sort) | tee "$PAC_DIR/pacman_user_pkgs.txt" > "$WIKI_DIR/pacman_user_pkgs.txt"
+FILE="$PAC_USER"
+comm -23 <(pacman -Qqne | sort) <(pacman -Qgq base base-devel | sort) | tee  "$GIT_DIR/$FILE" "$PAC_DIR/$FILE" > "$WIKI_DIR/$FILE"
 echo ""; echo ""
 
 
 # Installed packages not available in official repositories
 echo -e "Creating a list of all explicitly installed packages not available in official repositories"
-pacman -Qqem | tee "$PAC_DIR/aur_pkgs.txt" > "$WIKI_DIR/aur_pkgs.txt"
+FILE="$AUR"
+pacman -Qqem | tee "$GIT_DIR/$FILE" "$PAC_DIR/$FILE" > "$WIKI_DIR/$FILE"
 echo ""; echo ""
 
 
