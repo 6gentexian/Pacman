@@ -1,4 +1,4 @@
-# File that appears obsolete
+# Files that appears obsolete
 
 
 # Ignore all old or temp files
@@ -6,5 +6,8 @@
 .projectile
 
 
-# Ignore everything in DEV/
-DEV/
+# Ignore everything in ABC/
+
+
+
+
