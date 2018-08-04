@@ -64,6 +64,7 @@ update_question() {
 }
 
 
+# Output directories
 # Dir to save pacman output
 PAC_DIR="$HOME/.config/pacman"
 
