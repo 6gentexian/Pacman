@@ -10,7 +10,7 @@ This script provides basic maintenance and updating for pacman (package manageme
 
 
 ## Files
-```update.pacman.sh```
+`update.pacman.sh`
 
 
 
@@ -25,7 +25,7 @@ This script provides basic maintenance and updating for pacman (package manageme
 ## Use
 Place script on your path (e.g. in ~/bin), make it executable and run it:
 >$ chmod +x  update.pacman.sh  
->$ ./update.pacman.sh
+$ ./update.pacman.sh
 
 
 
