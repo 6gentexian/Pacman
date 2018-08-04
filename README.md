@@ -32,7 +32,7 @@ $ ./update.pacman.sh
 ## NB
 Pls customize the various directories the output is saved to and the output file names
 This script saves files into a folder for viewing in a wiki page. This is not necessary.
-To eliminate this, one can comment out the ```WIKI_DIR``` (line 72) AND comment out the latter most part of each output statement.
+To eliminate this, one can comment out the `WIKI_DIR` (line 72) AND comment out the latter most part of each output statement.
 For example, in the section that saves a list of all explicitly installed packages:
 >\# List of all installed packages  
 >echo "Creating list of all explicitly installed packages: $PAC_DIR/all_pkgs.txt"  
