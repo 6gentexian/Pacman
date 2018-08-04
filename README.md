@@ -37,10 +37,10 @@ For example, in the section that saves a list of all explicitly installed packag
 >\# List of all installed packages  
 >echo "Creating list of all explicitly installed packages: $PAC_DIR/all_pkgs.txt"  
 >FILE="$ALL"  
->pacman -Qqe | tee "$GIT_DIR/$FILE" "$PAC_DIR/$FILE" > "$WIKI_DIR/$FILE"  
+>pacman &emsp;&emsp; -Qqe &emsp;&emsp; | &emsp;&emsp; tee &emsp;&emsp; "$GIT_DIR/$FILE" &emsp;&emsp; "$PAC_DIR/$FILE" &emsp;&emsp; > &emsp;&emsp; "$WIKI_DIR/$FILE"  
 
 change the last line to  
->pacman -Qqe | tee "$GIT_DIR/$FILE" > "$PAC_DIR/$FILE"
+>pacman &emsp;&emsp; -Qqe &emsp;&emsp; | &emsp;&emsp; tee &emsp;&emsp; "$GIT_DIR/$FILE" &emsp;&emsp; > &emsp;&emsp; "$PAC_DIR/$FILE"
 
 
 
