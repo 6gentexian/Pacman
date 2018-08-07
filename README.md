@@ -2,10 +2,10 @@
 
 
 ## Summary
-This script provides basic maintenance and updating for pacman (package management) in an Arch Linux installation.  The scripts has 3 main parts:
+This script provides basic maintenance and updating for pacman (package management) in an Arch Linux installation.  The script has 3 main parts:
 1. System maintenance- regulating the contents and size of the pacman cache.
-2. Updates the mirrorlist, syncs official repos and updates packages from the official repos and the AUR.
-3. Outputs files that contain lists of packages explicitly installed on the machine.
+1. Updating the mirrorlist, syncs official repos and updates packages (from the official repos and the AUR).
+1. Outputs files that contain lists of installed packages.
 
 
 
@@ -16,7 +16,7 @@ This script provides basic maintenance and updating for pacman (package manageme
 
 ## Dependecies
 * pacman
-* pacmatic
+* pacmatic (optional)
 * reflector
 * yay
 
@@ -30,17 +30,17 @@ $ ./update.pacman.sh
 
 
 ## NB
-Pls customize the various directories the output is saved to and the output file names
-This script saves files into a folder for viewing in a wiki page. This is not necessary.
-To eliminate this, one can comment out the `WIKI_DIR` (line 72) AND comment out the latter most part of each output statement.
-For example, in the section that saves a list of all explicitly installed packages:
+Pls customize the various directory and file names.  
+This script saves files into git repo and a wiki folder.  This is not necessary.  
+To eliminate this, comment out the 'GIT_DIR' and 'WIKI_DIR' (~ line 95) AND alter the latter most part of each output statement.
+For example, in the section that saves a list of explicitly installed packages:
 >\# List of all installed packages  
 >echo "Creating list of all explicitly installed packages: $PAC_DIR/all_pkgs.txt"  
 >FILE="$ALL"  
 >pacman &emsp; -Qqe &emsp; | &emsp; tee &emsp; "$GIT_DIR/$FILE" &emsp; "$PAC_DIR/$FILE" &emsp; > &emsp; "$WIKI_DIR/$FILE"  
 
-change the last line to  
->pacman &emsp; -Qqe &emsp; | &emsp; tee &emsp; "$GIT_DIR/$FILE" &emsp; > &emsp; "$PAC_DIR/$FILE"
+change the last line to
+>pacman &emsp; -Qqe &emsp; > &emsp; "$PAC_DIR/$FILE"
 
 
 
