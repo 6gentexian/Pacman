@@ -5,6 +5,9 @@
 *~
 .projectile
 
+installed_pkglist.txt
+pacman_installed_pkglist.txt
+
 
 # Ignore everything in ABC/
 
