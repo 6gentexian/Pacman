@@ -1,6 +1,10 @@
 # README
 
 
+## Status
+[![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://raw.githubusercontent.com/6gentexian/Pacman/master/LICENSE)
+
+
 ## Summary
 This script provides basic maintenance and updating for pacman (package management) in an Arch Linux installation.  The script has 3 main parts:
 1. System maintenance- regulating the contents and size of the pacman cache.
@@ -48,10 +52,8 @@ change the last line to
 The output from pacmatic should be more readable - perhaps saved as an html file and viewed in a browser?
 
 
-<!-- ## Status
-[![GitLab license](https://img.shields.io/badge/license-MIT-blue.svg)](https://gitlab.com/6gentexian/Pacman/raw/master/LICENSE.md)
 
-<!-- [![Travis (.org) branch](https://img.shields.io/travis/6gentexian/Pacman/master.svg)] -->
+<!-- [![Travis (.org) branch](https://img.shields.io/travis/6gentexian/Pacman/master.svg)]
 
 <!-- [![coverage](https://gitlab.com/6gentexian/Pacman/badges/master/coverage.svg)](https://gitlab.com/6gentexian/Pacman/commits/master) -->
 
@@ -61,4 +63,4 @@ The output from pacmatic should be more readable - perhaps saved as an html file
 
 
 ## License and Copyright
-[MIT](LICENSE.md) License
+[MIT](LICENSE) License
